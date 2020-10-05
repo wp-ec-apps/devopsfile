@@ -30,5 +30,9 @@ def mavenHome = tool name: "maven3.6.3"
 		sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.232.215.245:/opt/apache-tomcat-9.0.38/webapps"
 	}
   }
+stage('EmailNotification')
+  {
+	mail bcc: '', body: 'Build is over', cc: '', from: '', replyTo: '', subject: 'Mail', to: 'vijayanooj.2010@gmail.com'
+   } 
    
  }
